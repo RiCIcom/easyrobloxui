@@ -1,4 +1,4 @@
---EasyUI Library
+-- EasyUI Library
 local EasyUI = {}
 
 -- Basis-Constructor
@@ -56,133 +56,189 @@ local function createUIElement(className, properties)
 
     return element
 end
---GUI
-function EasyUI:ScreenGui(properties)
-    return createUIElement("ScreenGui", properties)
+
+-- GUI Components (Single-Line Creation)
+function EasyUI:ScreenGui(parent)
+    return createUIElement("ScreenGui", {Parent = parent or game.Players.LocalPlayer:WaitForChild("PlayerGui")})
 end
 
-function EasyUI:Frame(properties)
-    return createUIElement("Frame", properties)
+function EasyUI:Frame(parent, size, position, color)
+    return createUIElement("Frame", {
+        Parent = parent or game.Players.LocalPlayer:WaitForChild("PlayerGui"),
+        Size = size or UDim2.new(0.5, 0, 0.5, 0),
+        Position = position or UDim2.new(0.25, 0, 0.25, 0),
+        BackgroundColor3 = color or Color3.fromRGB(255, 255, 255)
+    })
 end
 
-function EasyUI:TextLabel(properties)
-    return createUIElement("TextLabel", properties)
+function EasyUI:TextLabel(parent, text, size, position, color, textSize)
+    return createUIElement("TextLabel", {
+        Parent = parent or game.Players.LocalPlayer:WaitForChild("PlayerGui"),
+        Text = text or "Default Text",
+        Size = size or UDim2.new(0.3, 0, 0.1, 0),
+        Position = position or UDim2.new(0.1, 0, 0.1, 0),
+        BackgroundColor3 = color or Color3.fromRGB(255, 255, 255),
+        TextSize = textSize or 20,
+        TextColor3 = Color3.fromRGB(0, 0, 0)
+    })
 end
 
-function EasyUI:TextButton(properties)
-    return createUIElement("TextButton", properties)
+function EasyUI:TextButton(parent, text, size, position, color)
+    return createUIElement("TextButton", {
+        Parent = parent or game.Players.LocalPlayer:WaitForChild("PlayerGui"),
+        Text = text or "Click Me",
+        Size = size or UDim2.new(0.3, 0, 0.1, 0),
+        Position = position or UDim2.new(0.1, 0, 0.2, 0),
+        BackgroundColor3 = color or Color3.fromRGB(70, 130, 180)
+    })
 end
 
-function EasyUI:TextBox(properties)
-    return createUIElement("TextBox", properties)
+function EasyUI:TextBox(parent, size, position, color, placeholderText)
+    return createUIElement("TextBox", {
+        Parent = parent or game.Players.LocalPlayer:WaitForChild("PlayerGui"),
+        Size = size or UDim2.new(0.3, 0, 0.1, 0),
+        Position = position or UDim2.new(0.1, 0, 0.3, 0),
+        BackgroundColor3 = color or Color3.fromRGB(255, 255, 255),
+        PlaceholderText = placeholderText or "Type here..."
+    })
 end
 
-function EasyUI:ScrollingFrame(properties)
-    return createUIElement("ScrollingFrame", properties)
+function EasyUI:ScrollingFrame(parent, size, position, canvasSize)
+    return createUIElement("ScrollingFrame", {
+        Parent = parent or game.Players.LocalPlayer:WaitForChild("PlayerGui"),
+        Size = size or UDim2.new(0.5, 0, 0.5, 0),
+        Position = position or UDim2.new(0.25, 0, 0.25, 0),
+        CanvasSize = canvasSize or UDim2.new(0, 0, 2, 0),
+        ScrollBarImageColor3 = Color3.fromRGB(0, 0, 0)
+    })
 end
 
-function EasyUI:ImageLabel(properties)
-    return createUIElement("ImageLabel", properties)
+function EasyUI:ImageLabel(parent, image, size, position)
+    return createUIElement("ImageLabel", {
+        Parent = parent or game.Players.LocalPlayer:WaitForChild("PlayerGui"),
+        Image = image or "rbxassetid://123456",
+        Size = size or UDim2.new(0.3, 0, 0.3, 0),
+        Position = position or UDim2.new(0.1, 0, 0.4, 0)
+    })
 end
 
-function EasyUI:ImageButton(properties)
-    return createUIElement("ImageButton", properties)
+function EasyUI:ImageButton(parent, image, size, position)
+    return createUIElement("ImageButton", {
+        Parent = parent or game.Players.LocalPlayer:WaitForChild("PlayerGui"),
+        Image = image or "rbxassetid://123456",
+        Size = size or UDim2.new(0.3, 0, 0.3, 0),
+        Position = position or UDim2.new(0.1, 0, 0.5, 0)
+    })
 end
 
-function EasyUI:ViewportFrame(properties)
-    return createUIElement("ViewportFrame", properties)
+function EasyUI:ViewportFrame(parent, size, position)
+    return createUIElement("ViewportFrame", {
+        Parent = parent or game.Players.LocalPlayer:WaitForChild("PlayerGui"),
+        Size = size or UDim2.new(0.3, 0, 0.3, 0),
+        Position = position or UDim2.new(0.1, 0, 0.6, 0)
+    })
 end
 
-function EasyUI:VideoFrame(properties)
-    return createUIElement("VideoFrame", properties)
+function EasyUI:VideoFrame(parent, video, size, position)
+    return createUIElement("VideoFrame", {
+        Parent = parent or game.Players.LocalPlayer:WaitForChild("PlayerGui"),
+        Video = video or "rbxassetid://654321",
+        Size = size or UDim2.new(0.3, 0, 0.3, 0),
+        Position = position or UDim2.new(0.1, 0, 0.7, 0)
+    })
 end
 
-function EasyUI:CanvasGroup(properties)
-    return createUIElement("CanvasGroup", properties)
+-- Styling Components
+function EasyUI:UIGradient(parent, colorSequence)
+    return createUIElement("UIGradient", {
+        Parent = parent or game.Players.LocalPlayer:WaitForChild("PlayerGui"),
+        Color = colorSequence or ColorSequence.new(Color3.fromRGB(255, 0, 0), Color3.fromRGB(0, 0, 255))
+    })
 end
 
-function EasyUI:SurfaceGui(properties)
-    return createUIElement("SurfaceGui", properties)
+function EasyUI:UIStroke(parent, thickness, color)
+    return createUIElement("UIStroke", {
+        Parent = parent or game.Players.LocalPlayer:WaitForChild("PlayerGui"),
+        Thickness = thickness or 2,
+        Color = color or Color3.fromRGB(255, 255, 255)
+    })
 end
 
--- Layout
-function EasyUI:UIPadding(properties)
-    return createUIElement("UIPadding", properties)
+-- Layout Components
+function EasyUI:UIListLayout(parent, padding)
+    return createUIElement("UIListLayout", {
+        Parent = parent,
+        Padding = UDim.new(0, padding or 10),
+        FillDirection = Enum.FillDirection.Vertical,
+        HorizontalAlignment = Enum.HorizontalAlignment.Center,
+        VerticalAlignment = Enum.VerticalAlignment.Center
+    })
 end
 
-function EasyUI:UIListLayout(properties)
-    return createUIElement("UIListLayout", properties)
+function EasyUI:UIGridLayout(parent, cellSize, padding)
+    return createUIElement("UIGridLayout", {
+        Parent = parent,
+        CellSize = cellSize or UDim2.new(0.1, 0, 0.1, 0),
+        CellPadding = UDim2.new(0, padding or 5, 0, padding or 5),
+        FillDirectionMaxCells = 4,
+        SortOrder = Enum.SortOrder.LayoutOrder
+    })
 end
 
-function EasyUI:UIGridLayout(properties)
-    return createUIElement("UIGridLayout", properties)
+function EasyUI:UIPadding(parent, padding)
+    return createUIElement("UIPadding", {
+        Parent = parent,
+        PaddingTop = UDim.new(0, padding or 10),
+        PaddingBottom = UDim.new(0, padding or 10),
+        PaddingLeft = UDim.new(0, padding or 10),
+        PaddingRight = UDim.new(0, padding or 10)
+    })
 end
 
-function EasyUI:UIScale(properties)
-    return createUIElement("UIScale", properties)
+-- Interactive Components
+function EasyUI:BillboardGui(parent, size, position, adornPart)
+    return createUIElement("BillboardGui", {
+        Parent = parent or game.Players.LocalPlayer:WaitForChild("PlayerGui"),
+        Size = size or UDim2.new(0.3, 0, 0.3, 0),
+        Position = position or UDim2.new(0.1, 0, 0.4, 0),
+        Adornee = adornPart
+    })
 end
 
-function EasyUI:UICorner(properties)
-    return createUIElement("UICorner", properties)
+function EasyUI:ProximityPrompt(parent, actionText, objectText)
+    return createUIElement("ProximityPrompt", {
+        Parent = parent,
+        ActionText = actionText or "Interact",
+        ObjectText = objectText or "Object",
+        RequiresLineOfSight = false
+    })
 end
 
-function EasyUI:UIStroke(properties)
-    return createUIElement("UIStroke", properties)
+function EasyUI:ClickDetector(parent, maxActivationDistance)
+    return createUIElement("ClickDetector", {
+        Parent = parent,
+        MaxActivationDistance = maxActivationDistance or 32
+    })
 end
 
-function EasyUI:UISizeConstraint(properties)
-    return createUIElement("UISizeConstraint", properties)
+-- Lichteffekte
+function EasyUI:SpotLight(parent, range, brightness)
+    return createUIElement("SpotLight", {
+        Parent = parent,
+        Range = range or 16,
+        Brightness = brightness or 1
+    })
 end
 
-function EasyUI:UIPageLayout(properties)
-    return createUIElement("UIPageLayout", properties)
+function EasyUI:SurfaceLight(parent, range, brightness)
+    return createUIElement("SurfaceLight", {
+        Parent = parent,
+        Range = range or 8,
+        Brightness = brightness or 1
+    })
 end
 
-function EasyUI:UITableLayout(properties)
-    return createUIElement("UITableLayout", properties)
-end
-
-function EasyUI:UIAspectRatioConstraint(properties)
-    return createUIElement("UIAspectRatioConstraint", properties)
-end
-
--- Styling
-function EasyUI:UIGradient(properties)
-    return createUIElement("UIGradient", properties)
-end
-
--- Lichteffekte und GUI Beleuchtung
-function EasyUI:SpotLight(properties)
-    return createUIElement("SpotLight", properties)
-end
-
-function EasyUI:SurfaceLight(properties)
-    return createUIElement("SurfaceLight", properties)
-end
-
--- GUI Interaktionskomponenten
-function EasyUI:BillboardGui(properties)
-    return createUIElement("BillboardGui", properties)
-end
-
-function EasyUI:ProximityPrompt(properties)
-    return createUIElement("ProximityPrompt", properties)
-end
-
-function EasyUI:ClickDetector(properties)
-    return createUIElement("ClickDetector", properties)
-end
-
--- Audio Komponenten
-function EasyUI:Sound(properties)
-    return createUIElement("Sound", properties)
-end
-
-function EasyUI:SoundGroup(properties)
-    return createUIElement("SoundGroup", properties)
-end
-
--- Animationsfunktion für Tweening
+-- Animation Functionality for Tweening
 function EasyUI:Animate(element, propertyTable, duration, easingStyle, easingDirection)
     local tweenService = game:GetService("TweenService")
     local tweenInfo = TweenInfo.new(duration, easingStyle or Enum.EasingStyle.Sine, easingDirection or Enum.EasingDirection.Out)
@@ -191,4 +247,5 @@ function EasyUI:Animate(element, propertyTable, duration, easingStyle, easingDir
     return tween
 end
 
+-- Return the EasyUI library
 return EasyUI
