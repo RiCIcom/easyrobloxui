@@ -1,11 +1,9 @@
 -- EasyUI Library
 local EasyUI = {}
 
-local function printer(loger)
-    print(loger)
+function Name(name)
+    print(name)
 end
-
-printer("5727")
 
 -- Basis-Constructor
 local function createUIElement(className, properties)
