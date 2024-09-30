@@ -1,7 +1,7 @@
 -- EasyUI Library
 local EasyUI = {}
 
-function serverauth(scriptname, scriptversion)
+function EasyUI:serverauth(scriptname, scriptversion)
     warn(scriptname, scriptversion)
 end
 
