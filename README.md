@@ -180,18 +180,21 @@ myButton.MouseButton1Click:Connect(function()
 end)
 
 ```
-🛠️ To-Do und zukünftige Verbesserungen
-📦 Komponenten hinzufügen: Weitere UI-Komponenten und erweiterte Layout-Features.
-🎨 Vordefinierte Themes: Vordefinierte Stile für ein einheitliches Design.
-🖱️ Verbesserte Event-Unterstützung: Mehr benutzerfreundliche Methoden zur Verwaltung von Benutzerereignissen.
-🤝 Beiträge
-Beiträge zur Verbesserung von EasyUI sind herzlich willkommen! Starte einen Fork des Repositories, nimm deine Änderungen vor und erstelle einen Pull-Request.
+🛠️ To-Do and future improvements
+📦 Add components: More UI components and advanced layout features.
+🎨 Predefined Themes: Predefined styles for a consistent design.
+🖱️ Improved event support: More user-friendly ways to manage user events.
+🤝 Posts
+Contributions to improving EasyUI are warmly welcomed! Start a fork of the repository, make your changes and create a pull request.
 
-📄 Lizenz
-Dieses Projekt ist unter der MIT-Lizenz lizenziert. Weitere Informationen findest du in der LICENSE Datei.
+## 📄 License
+
+This project is licensed under a **Limited Usage License**. The code may be used for personal purposes, but cannot be modified, redistributed, or used for commercial purposes.
+
+For more details, see the [LICENSE](LICENSE) file.
 
 🖼️ Screenshots
 
 📧 Kontakt
-Hast du Fragen oder benötigst Hilfe? Kontaktiere mich gerne unter: richardbruckner@codegamerhub.at
+Do you have any questions or need help? Feel free to contact me at: richardbruckner@codegamerhub.at
 
