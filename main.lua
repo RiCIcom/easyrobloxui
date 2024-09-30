@@ -1,6 +1,10 @@
 -- EasyUI Library
 local EasyUI = {}
 
+local function clientready {
+        print("Client is loadet in Game" ..game.Name)
+}
+
 -- Basis-Constructor
 local function createUIElement(className, properties)
     local element = Instance.new(className)
