@@ -2,17 +2,17 @@
 
 ### Version: 1.0.0 | Maintained by [Rici]
 
-## 🚀 Überblick
+## 🚀 Overview
 
-**EasyUI** ist eine leistungsstarke und benutzerfreundliche Bibliothek, die die Erstellung und Anpassung von Roblox-GUI-Komponenten drastisch vereinfacht. Mit nur wenigen Codezeilen kannst du atemberaubende Benutzeroberflächen, Animationen und komplexe Layouts erstellen, ohne dich durch Hunderte von Zeilen Code arbeiten zu müssen.
+**EasyUI** is a powerful and easy-to-use library that dramatically simplifies the creation and customization of Roblox GUI components. With just a few lines of code, you can create stunning user interfaces, animations, and complex layouts without having to wade through hundreds of lines of code.
 
-Diese Bibliothek bietet eine Vielzahl von Funktionen, die dir die Arbeit erleichtern, von einfachen Frames bis hin zu fortgeschrittenen Layout- und Interaktionskomponenten. Alles, was du tun musst, ist **EasyUI** einzubinden und schon kannst du loslegen!
+This library offers a variety of features to make your work easier, from simple frames to advanced layout and interaction components. All you have to do is include **EasyUI** and you're ready to go!
 
 ---
 
 ## 🔧 Installation
 
-Um die EasyUI-Bibliothek in deinem Roblox-Projekt zu verwenden, füge den folgenden Code in dein Skript ein:
+To use the EasyUI library in your Roblox project, add the following code into your script:
 
 ```lua
 local EasyUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/RiCIcom/easyrobloxui/refs/heads/main/main.lua"))()
@@ -57,9 +57,9 @@ EasyUI supports all the essential UI components provided by Roblox. Here's an ov
 | `EasyUI:Sound()`               | Adds sound to a GUI for interaction purposes.     | `EasyUI:Sound({Parent = myPart, SoundId = "rbxassetid://987654"})` |
 | `EasyUI:SoundGroup()`          | Groups multiple sound elements together.          | `EasyUI:SoundGroup({Name = "MySoundGroup"})`              |
 
-## 📐 Layout-Komponenten
+## 📐 Layout-Komponents
 
-Organisiere deine Benutzeroberfläche mit den eingebauten Layout-Komponenten von **EasyUI**:
+Organize your interface with the built-in layout components **EasyUI**:
 
 | **Komponente**                  | **Beschreibung**                                           |
 |---------------------------------|------------------------------------------------------------|
@@ -75,7 +75,7 @@ Organisiere deine Benutzeroberfläche mit den eingebauten Layout-Komponenten von
 | `EasyUI:UISizeConstraint()`     | Fügt Größenbeschränkungen zu einem UI-Element hinzu.       |
 | `EasyUI:UIAspectRatioConstraint()` | Beschränkt das Seitenverhältnis eines UI-Elements.      |
 
-**Beispielcode:**
+**Example Code:**
 
 ```lua
 local myFrame = EasyUI:Frame({Name = "MyFrame", Size = UDim2.new(0.3, 0, 0.3, 0)})
@@ -84,27 +84,27 @@ local padding = EasyUI:UIPadding({PaddingTop = UDim.new(0, 10), Parent = myFrame
 ```lua
 EasyUI:Animate(myFrame, {Size = UDim2.new(0.6, 0, 0.6, 0)}, 1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out)
 ```
-## 🚀 Fortgeschrittene Funktionen
+## 🚀 Advanced features
 
-- **🖱️ Draggable UI-Elemente**: Alle UI-Elemente können durch Setzen von `Draggable = true` verschiebbar gemacht werden.
-- **📐 Automatische Anpassung**: Verwende Komponenten wie `UISizeConstraint` und `UIScale`, um sicherzustellen, dass deine Benutzeroberfläche auf allen Geräten gut aussieht.
-- **💡 Lichteffekte**: Verwende `SpotLight` oder `SurfaceLight`, um visuelle Effekte zu erzeugen.
-
----
-
-## 💡 Vorteile von EasyUI
-
-- **🔹 Weniger Code**: Erstelle UI-Elemente mit wenigen Zeilen Code, ohne dass jede Eigenschaft manuell festgelegt werden muss.
-- **🔹 Bewegliche Benutzeroberfläche**: Setze `Draggable = true`, um Elemente wie Cheat-UIs oder individuelle Fenster flexibel zu machen.
-- **🔹 Konsistente Layouts**: Mit den eingebauten Layout-Komponenten kannst du sicherstellen, dass dein UI auf jedem Gerät ordentlich aussieht.
-- **🔹 Animation und Effekte**: Erstelle ansprechende Animationen mit der `Animate`-Funktion und füge stilvolle Übergänge hinzu.
-- **🔹 Vereinfachte Interaktionen**: Die Funktionen wie `ClickDetector` oder `ProximityPrompt` erleichtern das Hinzufügen interaktiver Elemente.
+- **🖱️ Draggable UI Elements**: All UI elements can be made draggable by setting `Draggable = true`.
+- **📐 Automatic customization**: Use components like `UISizeConstraint` and `UIScale` to ensure your UI looks good on all devices.
+- **💡 Light Effects**: Use `SpotLight` or `SurfaceLight` to create visual effects.
 
 ---
 
-## 🌈 Beispielanwendung
+## 💡 Advantages of EasyUI
 
-Hier ist ein einfaches Beispiel, wie du mit **EasyUI** eine vollständige Benutzeroberfläche erstellen kannst:
+- **🔹 Less Code**: Create UI elements with few lines of code without having to set every property manually.
+- **🔹 Draggable UI**: Set `Draggable = true` to make elements like cheat UIs or custom windows flexible.
+- **🔹 Consistent Layouts**: With the built-in layout components, you can ensure your UI looks neat on any device.
+- **🔹 Animation and Effects**: Create beautiful animations with the 'Animate' feature and add stylish transitions.
+- **🔹 Simplified Interactions**: Features like `ClickDetector` or `ProximityPrompt` make it easier to add interactive elements.
+
+---
+
+## 🌈 Example application
+
+Here is a simple example of how you can create a complete user interface using **EasyUI**:
 ```lua
 local EasyUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/RiCIcom/repository/main/EasyUI.lua"))()
 
