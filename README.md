@@ -195,6 +195,6 @@ For more details, see the [LICENSE](LICENSE) file.
 
 🖼️ Screenshots
 
-📧 Kontakt
+📧 Contact
 Do you have any questions or need help? Feel free to contact me at: richardbruckner@codegamerhub.at
 
