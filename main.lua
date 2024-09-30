@@ -81,12 +81,11 @@ function EasyUI:UIGradient(parent, colorSequence)
     })
 end
 
-function EasyUI:UIStroke(parent, thickness, color)
-    return createUIElement("UIStroke", {
-        Parent = parent or game.Players.LocalPlayer:WaitForChild("PlayerGui"),
-        Thickness = thickness or 2,
-        Color = color or Color3.fromRGB(255, 255, 255)
-    })
+function EasyUI:UIStroke(element, thickness, color)
+    local stroke = Instance.new("UIStroke")
+    stroke.Thickness = thickness or 2
+    stroke.Color = color or Color3.fromRGB(0, 0, 0)
+    stroke.Parent = element
 end
 
 function EasyUI:UICorner(parent, cornerRadius)
