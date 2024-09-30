@@ -108,32 +108,76 @@ Hier ist ein einfaches Beispiel, wie du mit **EasyUI** eine vollständige Benutz
 ```lua
 local EasyUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/RiCIcom/repository/main/EasyUI.lua"))()
 
-local mainFrame = EasyUI:Frame({
-    Name = "MainFrame",
-    Size = UDim2.new(0.4, 0, 0.5, 0),
-    Position = UDim2.new(0.3, 0, 0.25, 0),
-    BackgroundColor3 = Color3.fromRGB(100, 100, 100),
-    Draggable = true
+local myFrame = EasyUI:Frame({
+    Name = "MyFrame",
+    Size = UDim2.new(0.3, 0, 0.3, 0),
+    Position = UDim2.new(0.35, 0, 0.35, 0),
+    BackgroundColor3 = Color3.fromRGB(200, 200, 255)
 })
 
-local inputBox = EasyUI:TextBox({
-    Name = "InputBox",
-    Size = UDim2.new(0.8, 0, 0.1, 0),
-    Position = UDim2.new(0.1, 0, 0.1, 0),
-    Text = "Gib etwas ein",
-    Parent = mainFrame
+-- Adds padding to my frame
+local padding = EasyUI:UIPadding({
+    PaddingTop = UDim.new(0, 10),
+    PaddingBottom = UDim.new(0, 10),
+    PaddingLeft = UDim.new(0, 10),
+    PaddingRight = UDim.new(0, 10),
+    Parent = myFrame
 })
 
-local button = EasyUI:TextButton({
-    Name = "ActionButton",
-    Text = "Starte Aktion",
-    Size = UDim2.new(0.5, 0, 0.2, 0),
-    Position = UDim2.new(0.25, 0, 0.3, 0),
+-- Rounds the corners of the frame
+local corner = EasyUI:UICorner({
+    Parent = myFrame,
+    CornerRadius = UDim.new(0, 15)
+})
+
+-- Adds a border (stroke) to the frame
+local stroke = EasyUI:UIStroke({
+    Parent = myFrame,
+    Thickness = 3,
+    Color = Color3.fromRGB(0, 0, 0)
+})
+
+-- Adds a gradient to the frame
+local gradient = EasyUI:UIGradient({
+    Parent = myFrame,
+    Color = ColorSequence.new{
+        ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+        ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 255))
+    }
+})
+
+-- Adds a list (UIListLayout) to the frame to arrange elements vertically
+local listLayout = EasyUI:UIListLayout({
+    Parent = myFrame,
+    Padding = UDim.new(0, 10),
+    FillDirection = Enum.FillDirection.Vertical,
+    HorizontalAlignment = Enum.HorizontalAlignment.Center
+})
+
+-- Create a Textlabel and paste it into the Frame
+local myLabel = EasyUI:TextLabel({
+    Parent = myFrame,
+    Text = "Willkommen bei EasyUI!",
+    Size = UDim2.new(1, 0, 0.2, 0),
+    BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+    TextColor3 = Color3.fromRGB(0, 0, 0),
+    TextSize = 24
+})
+
+-- Create clickable Button
+local myButton = EasyUI:TextButton({
+    Parent = myFrame,
+    Text = "Klicke mich!",
+    Size = UDim2.new(1, 0, 0.2, 0),
     BackgroundColor3 = Color3.fromRGB(70, 130, 180),
-    Parent = mainFrame
+    TextColor3 = Color3.fromRGB(255, 255, 255),
+    TextSize = 22
 })
 
-EasyUI:Animate(mainFrame, {Size = UDim2.new(0.5, 0, 0.6, 0)}, 1)
+-- Animation
+myButton.MouseButton1Click:Connect(function()
+    EasyUI:Animate(myButton, {Size = UDim2.new(1.1, 0, 0.25, 0)}, 0.5, Enum.EasingStyle.Bounce, Enum.EasingDirection.Out)
+end)
 
 ```
 🛠️ To-Do und zukünftige Verbesserungen
