@@ -24,31 +24,56 @@ local EasyUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/RiCIco
 
 EasyUI supports all the essential UI components provided by Roblox. Here's an overview of each function:
 
-| **Function**           | **Description**                       | **Example Code**                                      |
-|------------------------|---------------------------------------|-------------------------------------------------------|
-| `EasyUI:ScreenGui()`   | Creates a `ScreenGui`.                | `EasyUI:ScreenGui({Name = "MyScreenGui"})`            |
-| `EasyUI:Frame()`       | Creates a `Frame`.                    | `EasyUI:Frame({Size = UDim2.new(0.5, 0, 0.5, 0)})`    |
-| `EasyUI:TextLabel()`   | Creates a `TextLabel`.                | `EasyUI:TextLabel({Text = "Hello"})`                  |
-| `EasyUI:TextButton()`  | Creates a clickable `TextButton`.     | `EasyUI:TextButton({Text = "Click me"})`              |
-| `EasyUI:TextBox()`     | Creates a `TextBox`.                  | `EasyUI:TextBox({Text = "Enter text..."})`            |
-| `EasyUI:ScrollingFrame()` | Creates a `ScrollingFrame`.        | `EasyUI:ScrollingFrame({CanvasSize = UDim2.new(0, 0, 2, 0)})` |
-| `EasyUI:ImageLabel()`  | Creates an `ImageLabel`.              | `EasyUI:ImageLabel({Image = "rbxassetid://123456"})`  |
-| `EasyUI:ImageButton()` | Creates an `ImageButton`.             | `EasyUI:ImageButton({Image = "rbxassetid://123456"})` |
-| `EasyUI:ViewportFrame()` | Creates a `ViewportFrame`.          | `EasyUI:ViewportFrame({})`                            |
-| `EasyUI:VideoFrame()`  | Creates a `VideoFrame`.               | `EasyUI:VideoFrame({Video = "rbxassetid://654321"})`  |
-| `EasyUI:CanvasGroup()` | Creates a `CanvasGroup`.              | `EasyUI:CanvasGroup({})`                              |
+| **Function**                   | **Description**                                   | **Example Code**                                           |
+|--------------------------------|---------------------------------------------------|------------------------------------------------------------|
+| `EasyUI:ScreenGui()`           | Creates a `ScreenGui`.                            | `EasyUI:ScreenGui({Name = "MyScreenGui"})`                 |
+| `EasyUI:Frame()`               | Creates a `Frame`.                                | `EasyUI:Frame({Size = UDim2.new(0.5, 0, 0.5, 0)})`         |
+| `EasyUI:TextLabel()`           | Creates a `TextLabel`.                            | `EasyUI:TextLabel({Text = "Hello"})`                       |
+| `EasyUI:TextButton()`          | Creates a clickable `TextButton`.                 | `EasyUI:TextButton({Text = "Click me"})`                   |
+| `EasyUI:TextBox()`             | Creates a `TextBox`.                              | `EasyUI:TextBox({PlaceholderText = "Enter text..."})`      |
+| `EasyUI:ScrollingFrame()`      | Creates a `ScrollingFrame`.                       | `EasyUI:ScrollingFrame({CanvasSize = UDim2.new(0, 0, 2, 0)})` |
+| `EasyUI:ImageLabel()`          | Creates an `ImageLabel`.                          | `EasyUI:ImageLabel({Image = "rbxassetid://123456"})`       |
+| `EasyUI:ImageButton()`         | Creates an `ImageButton`.                         | `EasyUI:ImageButton({Image = "rbxassetid://123456"})`      |
+| `EasyUI:ViewportFrame()`       | Creates a `ViewportFrame`.                        | `EasyUI:ViewportFrame({})`                                 |
+| `EasyUI:VideoFrame()`          | Creates a `VideoFrame`.                           | `EasyUI:VideoFrame({Video = "rbxassetid://654321"})`       |
+| `EasyUI:CanvasGroup()`         | Creates a `CanvasGroup`.                          | `EasyUI:CanvasGroup({})`                                   |
+| `EasyUI:UIPadding()`           | Adds padding to a UI element.                     | `EasyUI:UIPadding({PaddingTop = UDim.new(0, 10), Parent = myFrame})` |
+| `EasyUI:UIListLayout()`        | Arranges elements in a list.                      | `EasyUI:UIListLayout({Parent = myFrame, Padding = UDim.new(0, 5)})` |
+| `EasyUI:UIGridLayout()`        | Creates a grid layout.                            | `EasyUI:UIGridLayout({Parent = myFrame, CellSize = UDim2.new(0.1, 0, 0.1, 0)})` |
+| `EasyUI:UICorner()`            | Rounds the corners of a UI element.               | `EasyUI:UICorner({Parent = myFrame, CornerRadius = UDim.new(0, 15)})` |
+| `EasyUI:UIStroke()`            | Adds an outline stroke to a UI element.           | `EasyUI:UIStroke({Parent = myFrame, Thickness = 2, Color = Color3.fromRGB(255, 255, 255)})` |
+| `EasyUI:UIGradient()`          | Adds a color gradient to a UI element.            | `EasyUI:UIGradient({Parent = myFrame, Color = ColorSequence.new(Color3.fromRGB(255, 0, 0), Color3.fromRGB(0, 0, 255))})` |
+| `EasyUI:SpotLight()`           | Adds a spotlight effect to an element.            | `EasyUI:SpotLight({Parent = myPart, Range = 16, Brightness = 1})` |
+| `EasyUI:SurfaceLight()`        | Adds surface lighting to an element.              | `EasyUI:SurfaceLight({Parent = myPart, Range = 8, Brightness = 1})` |
+| `EasyUI:BillboardGui()`        | Creates a `BillboardGui` for displaying UI elements above parts. | `EasyUI:BillboardGui({Parent = myPart, Size = UDim2.new(0.3, 0, 0.3, 0)})` |
+| `EasyUI:ProximityPrompt()`     | Adds a proximity prompt interaction to an element.| `EasyUI:ProximityPrompt({Parent = myPart, ActionText = "Interact"})` |
+| `EasyUI:ClickDetector()`       | Adds a click detection capability to an element.  | `EasyUI:ClickDetector({Parent = myPart, MaxActivationDistance = 32})` |
+| `EasyUI:UIScale()`             | Scales a UI element.                              | `EasyUI:UIScale({Parent = myFrame, Scale = 1.5})`          |
+| `EasyUI:UISizeConstraint()`    | Adds size constraints to a UI element.            | `EasyUI:UISizeConstraint({Parent = myFrame, MaxSize = Vector2.new(200, 200)})` |
+| `EasyUI:UIPageLayout()`        | Creates a page layout for navigation.             | `EasyUI:UIPageLayout({Parent = myFrame, Circular = true})` |
+| `EasyUI:UITableLayout()`      | Creates a table layout for organizing elements.   | `EasyUI:UITableLayout({Parent = myFrame})`               |
+| `EasyUI:UIAspectRatioConstraint()` | Constrains the aspect ratio of an element.     | `EasyUI:UIAspectRatioConstraint({Parent = myFrame, AspectRatio = 1.5})` |
+| `EasyUI:Animate()`             | Adds tween animations to elements.                | `EasyUI:Animate(myFrame, {Size = UDim2.new(0.6, 0, 0.6, 0)}, 1)` |
+| `EasyUI:Sound()`               | Adds sound to a GUI for interaction purposes.     | `EasyUI:Sound({Parent = myPart, SoundId = "rbxassetid://987654"})` |
+| `EasyUI:SoundGroup()`          | Groups multiple sound elements together.          | `EasyUI:SoundGroup({Name = "MySoundGroup"})`              |
 
 ## 📐 Layout-Komponenten
 
 Organisiere deine Benutzeroberfläche mit den eingebauten Layout-Komponenten von **EasyUI**:
 
-| **Komponente**         | **Beschreibung**                                           |
-|------------------------|------------------------------------------------------------|
-| `EasyUI:UIPadding()`   | Fügt einen Innenabstand zu einem Element hinzu.            |
-| `EasyUI:UIListLayout()`| Ordnet Elemente in einer Liste an.                         |
-| `EasyUI:UIGridLayout()`| Erstellt ein Gitterlayout.                                 |
-| `EasyUI:UICorner()`    | Rundet die Ecken eines UI-Elements ab.                     |
-| `EasyUI:UIStroke()`    | Fügt einen Rand zu einem UI-Element hinzu.                 |
+| **Komponente**                  | **Beschreibung**                                           |
+|---------------------------------|------------------------------------------------------------|
+| `EasyUI:UIPadding()`            | Fügt einen Innenabstand zu einem Element hinzu.            |
+| `EasyUI:UIListLayout()`         | Ordnet Elemente in einer Liste an.                         |
+| `EasyUI:UIGridLayout()`         | Erstellt ein Gitterlayout.                                 |
+| `EasyUI:UICorner()`             | Rundet die Ecken eines UI-Elements ab.                     |
+| `EasyUI:UIStroke()`             | Fügt einen Rand zu einem UI-Element hinzu.                 |
+| `EasyUI:UIGradient()`           | Fügt einen Farbverlauf zu einem UI-Element hinzu.          |
+| `EasyUI:UIPageLayout()`         | Erstellt ein Seitenlayout für die Navigation.              |
+| `EasyUI:UITableLayout()`       | Erstellt ein Tabellenlayout für die Organisation von Elementen. |
+| `EasyUI:UIScale()`              | Skaliert ein UI-Element.                                   |
+| `EasyUI:UISizeConstraint()`     | Fügt Größenbeschränkungen zu einem UI-Element hinzu.       |
+| `EasyUI:UIAspectRatioConstraint()` | Beschränkt das Seitenverhältnis eines UI-Elements.      |
 
 **Beispielcode:**
 
