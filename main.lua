@@ -221,6 +221,25 @@ function EasyUI:ClickDetector(parent, maxActivationDistance)
     })
 end
 
+--Utility Functions
+function EasyUI:MakeHoverable(element, hoverColor, originalColor)
+    originalColor = originalColor or element.BackgroundColor3
+    element.MouseEnter:Connect(function()
+        element.BackgroundColor3 = hoverColor
+    end)
+    element.MouseLeave:Connect(function()
+        element.BackgroundColor3 = originalColor
+    end)
+end
+
+function EasyUI:MakeClickable(element, onClickFunction)
+    element.MouseButton1Click:Connect(function()
+        if onClickFunction then
+            onClickFunction()
+        end
+    end)
+end
+
 -- Lichteffekte
 function EasyUI:SpotLight(parent, range, brightness)
     return createUIElement("SpotLight", {
