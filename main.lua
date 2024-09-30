@@ -1,8 +1,8 @@
 -- EasyUI Library
 local EasyUI = {}
 
-function Name(name)
-    print(name)
+function serverauth(scriptname, scriptversion)
+    warn(scriptname, scriptversion)
 end
 
 -- Basis-Constructor
