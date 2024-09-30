@@ -247,5 +247,21 @@ function EasyUI:Animate(element, propertyTable, duration, easingStyle, easingDir
     return tween
 end
 
+function EasyUI:FadeIn(element, duration)
+    element.BackgroundTransparency = 1
+    element.Visible = true
+    EasyUI:Animate(element, {BackgroundTransparency = 0}, duration or 1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+end
+
+function EasyUI:FadeOut(element, duration)
+    EasyUI:Animate(element, {BackgroundTransparency = 1}, duration or 1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out).Completed:Connect(function()
+        element.Visible = false
+    end)
+end
+
+function EasyUI:Bounce(element, property, targetValue, duration)
+    EasyUI:Animate(element, {[property] = targetValue}, duration or 0.5, Enum.EasingStyle.Bounce, Enum.EasingDirection.Out)
+end
+
 -- Return the EasyUI library
 return EasyUI
