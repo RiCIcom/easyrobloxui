@@ -57,6 +57,28 @@ local function createUIElement(className, properties)
     return element
 end
 
+function EasyUI:UIGradient(parent, colorSequence)
+    return createUIElement("UIGradient", {
+        Parent = parent or game.Players.LocalPlayer:WaitForChild("PlayerGui"),
+        Color = colorSequence or ColorSequence.new(Color3.fromRGB(255, 0, 0), Color3.fromRGB(0, 0, 255))
+    })
+end
+
+function EasyUI:UIStroke(parent, thickness, color)
+    return createUIElement("UIStroke", {
+        Parent = parent or game.Players.LocalPlayer:WaitForChild("PlayerGui"),
+        Thickness = thickness or 2,
+        Color = color or Color3.fromRGB(255, 255, 255)
+    })
+end
+
+function EasyUI:UICorner(parent, cornerRadius)
+    return createUIElement("UICorner", {
+        Parent = parent,
+        CornerRadius = cornerRadius or UDim.new(0, 10) -- Standardmäßig abgerundete Ecken mit Radius von 10 Pixeln
+    })
+end
+
 -- GUI Components (Single-Line Creation)
 function EasyUI:ScreenGui(parent)
     return createUIElement("ScreenGui", {Parent = parent or game.Players.LocalPlayer:WaitForChild("PlayerGui")})
