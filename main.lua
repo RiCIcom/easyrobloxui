@@ -5,6 +5,7 @@ local versionnumber = 5727
 
 print("Welcome, you use the EasyUI ^^")
 warn(versionnumber)
+error("Test")
 
 -- Basis-Constructor
 local function createUIElement(className, properties)
