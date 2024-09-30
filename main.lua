@@ -57,6 +57,23 @@ local function createUIElement(className, properties)
     return element
 end
 
+function EasyUI:ApplyShadow(element)
+    if not element then
+        warn("ApplyShadow: Element not found!")
+        return
+    end
+
+    local shadow = Instance.new("ImageLabel")
+    shadow.Name = "Shadow"
+    shadow.BackgroundTransparency = 1
+    shadow.Image = "rbxassetid://1316045217" 
+    shadow.Size = UDim2.new(1, 12, 1, 12)
+    shadow.Position = UDim2.new(0, -6, 0, -6)
+    shadow.ImageTransparency = 0.5
+    shadow.ZIndex = element.ZIndex - 1
+    shadow.Parent = element
+end
+
 function EasyUI:UIGradient(parent, colorSequence)
     return createUIElement("UIGradient", {
         Parent = parent or game.Players.LocalPlayer:WaitForChild("PlayerGui"),
