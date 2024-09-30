@@ -1,8 +1,14 @@
 -- EasyUI Library
 local EasyUI = {}
 
-function EasyUI:serverauth(scriptname, scriptversion)
-    warn(scriptname, scriptversion)
+function EasyUI:serverauth(scriptname, scriptversion, playername)
+    print("EasyUI on top")
+    warn("Data recived" ..scriptname, scriptversion)
+    verifiedsystem(playername)
+end
+
+function verifiedsystem(playername)
+    print("You secure" ..playername)
 end
 
 -- Basis-Constructor
