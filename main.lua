@@ -1,6 +1,8 @@
 -- EasyUI Library
 local EasyUI = {}
 
+print("Welcome, you use the EasyUI ^^")
+
 -- Basis-Constructor
 local function createUIElement(className, properties)
     local element = Instance.new(className)
