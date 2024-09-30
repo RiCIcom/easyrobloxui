@@ -18,23 +18,25 @@ Um die EasyUI-Bibliothek in deinem Roblox-Projekt zu verwenden, füge den folgen
 local EasyUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/RiCIcom/repository/main/EasyUI.lua"))()
 ```
 
-📝 Funktionen und Komponenten
-📑 Funktionen und Komponenten
-⚙️ Grundkomponenten
-EasyUI unterstützt die wichtigsten UI-Komponenten, die Roblox anbietet. Hier ist eine Übersicht aller Funktionen:
+## 📑 Functions and Components
 
-Funktion	Beschreibung	Beispielcode
-EasyUI:ScreenGui()	Erstellt ein ScreenGui.	EasyUI:ScreenGui({Name = "MyScreenGui"})
-EasyUI:Frame()	Erstellt ein Frame.	EasyUI:Frame({Size = UDim2.new(0.5, 0, 0.5, 0)})
-EasyUI:TextLabel()	Erstellt ein TextLabel.	EasyUI:TextLabel({Text = "Hallo"})
-EasyUI:TextButton()	Erstellt einen TextButton.	EasyUI:TextButton({Text = "Klick mich"})
-EasyUI:TextBox()	Erstellt ein TextBox (Eingabefeld).	EasyUI:TextBox({Text = "Gib etwas ein..."})
-EasyUI:ScrollingFrame()	Erstellt einen ScrollingFrame.	EasyUI:ScrollingFrame({CanvasSize = UDim2.new(0, 0, 2, 0)})
-EasyUI:ImageLabel()	Erstellt ein ImageLabel (Bildanzeige).	EasyUI:ImageLabel({Image = "rbxassetid://123456"})
-EasyUI:ImageButton()	Erstellt ein ImageButton.	EasyUI:ImageButton({Image = "rbxassetid://123456"})
-EasyUI:ViewportFrame()	Erstellt ein ViewportFrame.	EasyUI:ViewportFrame({})
-EasyUI:VideoFrame()	Erstellt ein VideoFrame.	EasyUI:VideoFrame({Video = "rbxassetid://654321"})
-EasyUI:CanvasGroup()	Erstellt eine CanvasGroup.	EasyUI:CanvasGroup({})
+### ⚙️ Core Components
+
+EasyUI supports all the essential UI components provided by Roblox. Here's an overview of each function:
+
+| **Function**           | **Description**                       | **Example Code**                                      |
+|------------------------|---------------------------------------|-------------------------------------------------------|
+| `EasyUI:ScreenGui()`   | Creates a `ScreenGui`.                | `EasyUI:ScreenGui({Name = "MyScreenGui"})`            |
+| `EasyUI:Frame()`       | Creates a `Frame`.                    | `EasyUI:Frame({Size = UDim2.new(0.5, 0, 0.5, 0)})`    |
+| `EasyUI:TextLabel()`   | Creates a `TextLabel`.                | `EasyUI:TextLabel({Text = "Hello"})`                  |
+| `EasyUI:TextButton()`  | Creates a clickable `TextButton`.     | `EasyUI:TextButton({Text = "Click me"})`              |
+| `EasyUI:TextBox()`     | Creates a `TextBox`.                  | `EasyUI:TextBox({Text = "Enter text..."})`            |
+| `EasyUI:ScrollingFrame()` | Creates a `ScrollingFrame`.        | `EasyUI:ScrollingFrame({CanvasSize = UDim2.new(0, 0, 2, 0)})` |
+| `EasyUI:ImageLabel()`  | Creates an `ImageLabel`.              | `EasyUI:ImageLabel({Image = "rbxassetid://123456"})`  |
+| `EasyUI:ImageButton()` | Creates an `ImageButton`.             | `EasyUI:ImageButton({Image = "rbxassetid://123456"})` |
+| `EasyUI:ViewportFrame()` | Creates a `ViewportFrame`.          | `EasyUI:ViewportFrame({})`                            |
+| `EasyUI:VideoFrame()`  | Creates a `VideoFrame`.               | `EasyUI:VideoFrame({Video = "rbxassetid://654321"})`  |
+| `EasyUI:CanvasGroup()` | Creates a `CanvasGroup`.              | `EasyUI:CanvasGroup({})`                              |
 
 📐 Layout-Komponenten
 Organisiere deine Benutzeroberfläche mit den eingebauten Layout-Komponenten:
