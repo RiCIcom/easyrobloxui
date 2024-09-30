@@ -38,27 +38,24 @@ EasyUI supports all the essential UI components provided by Roblox. Here's an ov
 | `EasyUI:VideoFrame()`  | Creates a `VideoFrame`.               | `EasyUI:VideoFrame({Video = "rbxassetid://654321"})`  |
 | `EasyUI:CanvasGroup()` | Creates a `CanvasGroup`.              | `EasyUI:CanvasGroup({})`                              |
 
-📐 Layout-Komponenten
-Organisiere deine Benutzeroberfläche mit den eingebauten Layout-Komponenten:
+## 📐 Layout-Komponenten
 
-EasyUI:UIPadding(): Füge einen Innenabstand zu einem Element hinzu.
-EasyUI:UIListLayout(): Verwende dies, um Elemente in einer Liste anzuordnen.
-EasyUI:UIGridLayout(): Erstelle ein Gitterlayout.
-EasyUI:UICorner(): Runde die Ecken eines UI-Elements ab.
-EasyUI:UIStroke(): Füge einen Rand zu einem UI-Element hinzu.
-Beispiel:
-lua
-Code kopieren
+Organisiere deine Benutzeroberfläche mit den eingebauten Layout-Komponenten von **EasyUI**:
+
+| **Komponente**         | **Beschreibung**                                           |
+|------------------------|------------------------------------------------------------|
+| `EasyUI:UIPadding()`   | Fügt einen Innenabstand zu einem Element hinzu.            |
+| `EasyUI:UIListLayout()`| Ordnet Elemente in einer Liste an.                         |
+| `EasyUI:UIGridLayout()`| Erstellt ein Gitterlayout.                                 |
+| `EasyUI:UICorner()`    | Rundet die Ecken eines UI-Elements ab.                     |
+| `EasyUI:UIStroke()`    | Fügt einen Rand zu einem UI-Element hinzu.                 |
+
+**Beispielcode:**
+
+```lua
 local myFrame = EasyUI:Frame({Name = "MyFrame", Size = UDim2.new(0.3, 0, 0.3, 0)})
 local padding = EasyUI:UIPadding({PaddingTop = UDim.new(0, 10), Parent = myFrame})
-✨ Interaktive Komponenten
-Erstelle interaktive Benutzeroberflächen:
-
-EasyUI:TextButton(): Erstellt einen klickbaren Button.
-EasyUI:ProximityPrompt(): Füge eine Proximity-Aufforderung hinzu.
-EasyUI:ClickDetector(): Ermögliche es, UI-Elemente durch Anklicken zu interagieren.
-🔄 Animationen
-Verwende die eingebaute Animationsfunktion, um Tween-Animationen zu erstellen:
+```
 
 lua
 Code kopieren
