@@ -1,6 +1,15 @@
 -- EasyUI Library
 local EasyUI = {}
 
+function printer(value)
+    if value == true
+        then
+        print("EasyUI works")
+    else
+        
+    end
+end
+
 -- Basis-Constructor
 local function createUIElement(className, properties)
     local element = Instance.new(className)
