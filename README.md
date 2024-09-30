@@ -15,7 +15,7 @@ Diese Bibliothek bietet eine Vielzahl von Funktionen, die dir die Arbeit erleich
 Um die EasyUI-Bibliothek in deinem Roblox-Projekt zu verwenden, füge den folgenden Code in dein Skript ein:
 
 ```lua
-local EasyUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/RiCIcom/repository/main/EasyUI.lua"))()
+local EasyUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/RiCIcom/easyrobloxui/refs/heads/main/main.lua"))()
 ```
 
 ## 📑 Functions and Components
