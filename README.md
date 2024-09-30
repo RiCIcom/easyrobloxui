@@ -56,10 +56,9 @@ Organisiere deine Benutzeroberfläche mit den eingebauten Layout-Komponenten von
 local myFrame = EasyUI:Frame({Name = "MyFrame", Size = UDim2.new(0.3, 0, 0.3, 0)})
 local padding = EasyUI:UIPadding({PaddingTop = UDim.new(0, 10), Parent = myFrame})
 ```
-
-lua
-Code kopieren
+```lua
 EasyUI:Animate(myFrame, {Size = UDim2.new(0.6, 0, 0.6, 0)}, 1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out)
+```
 🚀 Fortgeschrittene Funktionen
 Draggable UI-Elemente: Alle UI-Elemente können durch Setzen von Draggable = true verschiebbar gemacht werden.
 Automatische Anpassung: Verwende Komponenten wie UISizeConstraint und UIScale, um sicherzustellen, dass deine Benutzeroberfläche auf allen Geräten gut aussieht.
@@ -74,8 +73,7 @@ Lichteffekte: Verwende SpotLight oder SurfaceLight, um visuelle Effekte zu erzeu
 🌈 Beispielanwendung
 Hier ist ein einfaches Beispiel, wie du mit EasyUI eine vollständige Benutzeroberfläche erstellen kannst:
 
-lua
-Code kopieren
+```lua
 local EasyUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/RiCIcom/repository/main/EasyUI.lua"))()
 
 local mainFrame = EasyUI:Frame({
@@ -104,6 +102,7 @@ local button = EasyUI:TextButton({
 })
 
 EasyUI:Animate(mainFrame, {Size = UDim2.new(0.5, 0, 0.6, 0)}, 1)
+```
 🛠️ To-Do und zukünftige Verbesserungen
 📦 Komponenten hinzufügen: Weitere UI-Komponenten und erweiterte Layout-Features.
 🎨 Vordefinierte Themes: Vordefinierte Stile für ein einheitliches Design.
