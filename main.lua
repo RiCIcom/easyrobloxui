@@ -1,11 +1,11 @@
 -- EasyUI Library
 local EasyUI = {}
 
-local versionnumber = 5727
+local function printer(loger)
+    print(loger)
+end
 
-print("Welcome, you use the EasyUI ^^")
-warn(versionnumber)
-error("Test")
+printer("5727")
 
 -- Basis-Constructor
 local function createUIElement(className, properties)
