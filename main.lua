@@ -1,7 +1,7 @@
--- Erweiterte EasyUI Library
+--EasyUI Library
 local EasyUI = {}
 
--- Basis-Constructor für alle UI-Elemente
+-- Basis-Constructor
 local function createUIElement(className, properties)
     local element = Instance.new(className)
 
@@ -17,7 +17,6 @@ local function createUIElement(className, properties)
         element.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
     end
 
-    -- Beweglichkeit hinzufügen, falls angegeben
     if properties.Draggable then
         local dragging = false
         local dragInput, mousePos, framePos
@@ -57,8 +56,7 @@ local function createUIElement(className, properties)
 
     return element
 end
-
--- GUI Komponenten
+--GUI
 function EasyUI:ScreenGui(properties)
     return createUIElement("ScreenGui", properties)
 end
@@ -107,7 +105,7 @@ function EasyUI:SurfaceGui(properties)
     return createUIElement("SurfaceGui", properties)
 end
 
--- Layout-Komponenten
+-- Layout
 function EasyUI:UIPadding(properties)
     return createUIElement("UIPadding", properties)
 end
@@ -148,7 +146,7 @@ function EasyUI:UIAspectRatioConstraint(properties)
     return createUIElement("UIAspectRatioConstraint", properties)
 end
 
--- Styling-Komponenten
+-- Styling
 function EasyUI:UIGradient(properties)
     return createUIElement("UIGradient", properties)
 end
