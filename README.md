@@ -124,5 +124,5 @@ Dieses Projekt ist unter der MIT-Lizenz lizenziert. Weitere Informationen findes
 🖼️ Screenshots
 
 📧 Kontakt
-Hast du Fragen oder benötigst Hilfe? Kontaktiere mich gerne unter: your-email@example.com
+Hast du Fragen oder benötigst Hilfe? Kontaktiere mich gerne unter: richardbruckner@codegamerhub.at
 
