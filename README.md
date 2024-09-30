@@ -191,7 +191,7 @@ Contributions to improving EasyUI are warmly welcomed! Start a fork of the repos
 
 This project is licensed under a **Limited Usage License**. The code may be used for personal purposes, but cannot be modified, redistributed, or used for commercial purposes.
 
-For more details, see the [LICENSE](LICENSE) file.
+For more details, see the [LICENSE](LICENSE.md) file.
 
 🖼️ Screenshots
 
