@@ -1,7 +1,10 @@
 -- EasyUI Library
 local EasyUI = {}
 
+local versionnumber = 5727
+
 print("Welcome, you use the EasyUI ^^")
+warn(versionnumber)
 
 -- Basis-Constructor
 local function createUIElement(className, properties)
