@@ -326,9 +326,7 @@ function EasyUI:printer(value)
     if value == true then
         print("You using EasyUI")
         else
-            if value == nil then
-             --Nothing   
-            end
+            print("False")
     end
 end
 
