@@ -78,7 +78,7 @@ end
 
 function EasyUI:UIGradient(parent, colorSequence)
     return createUIElement("UIGradient", {
-        Parent = parent or game.Players.LocalPlayer:WaitForChild("PlayerGui"),
+        Parent = parent,
         Color = colorSequence or ColorSequence.new(Color3.fromRGB(255, 0, 0), Color3.fromRGB(0, 0, 255))
     })
 end
@@ -123,14 +123,18 @@ function EasyUI:TextLabel(parent, text, size, position, color, textSize)
     })
 end
 
-function EasyUI:TextButton(parent, text, size, position, color)
-    return createUIElement("TextButton", {
+function EasyUI:TextButton(parent, text, size, position, color, callback)
+    local button = createUIElement("TextButton", {
         Parent = parent or game.Players.LocalPlayer:WaitForChild("PlayerGui"),
         Text = text or "Click Me",
         Size = size or UDim2.new(0.3, 0, 0.1, 0),
         Position = position or UDim2.new(0.1, 0, 0.2, 0),
         BackgroundColor3 = color or Color3.fromRGB(70, 130, 180)
     })
+    if callback then
+        button.MouseButton1Click:Connect(callback)
+    end
+    return button
 end
 
 function EasyUI:TextBox(parent, size, position, color, placeholderText)
@@ -340,16 +344,140 @@ function EasyUI:wadiohafehfh(advancedcreater, playername)
     end
 end
 
-function test(playername)
-    if playername == "Restaes" then
-        print("YEA")
-    else
-        print("Not whitelistet")
+function EasyUI:ProgressBar(parent, size, position, color, progress)
+    local frame = self:Frame(parent, size, position, color)
+    local progressBar = createUIElement("Frame", {
+        Parent = frame,
+        Size = UDim2.new(progress or 0.5, 0, 1, 0),
+        BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+    })
+    return frame, progressBar
+end
+
+function EasyUI:Slider(parent, size, position, callback)
+    local sliderFrame = self:Frame(parent, size, position, Color3.fromRGB(200, 200, 200))
+    local sliderButton = self:TextButton(sliderFrame, "", UDim2.new(0.05, 0, 1, 0), UDim2.new(0, 0, 0, 0), Color3.fromRGB(100, 100, 255))
+    sliderButton.Draggable = true
+
+    sliderButton.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseMovement then
+            sliderButton.Position = UDim2.new(math.clamp(input.Position.X / sliderFrame.AbsoluteSize.X, 0, 1), 0, 0, 0)
+            if callback then
+                callback(sliderButton.Position.X.Scale)
+            end
+        end
+    end)
+
+    return sliderFrame, sliderButton
+end
+
+function EasyUI:UIAspectRatioConstraint(parent, aspectRatio)
+    return createUIElement("UIAspectRatioConstraint", {
+        Parent = parent,
+        AspectRatio = aspectRatio or 1,
+        DominantAxis = Enum.DominantAxis.Width
+    })
+end
+
+------------------
+
+-- Interactive Components
+function EasyUI:DraggableFrame(parent, size, position, color)
+    local frame = self:Frame(parent, size, position, color)
+    frame.Draggable = true
+    return frame
+end
+
+function EasyUI:ToolTip(element, tooltipText)
+    local tooltip = self:TextLabel(element, tooltipText, UDim2.new(0.3, 0, 0.05, 0), UDim2.new(1, 0, 0, 0), Color3.fromRGB(50, 50, 50), 16)
+    tooltip.Visible = false
+    tooltip.ZIndex = element.ZIndex + 1
+
+    element.MouseEnter:Connect(function()
+        tooltip.Visible = true
+    end)
+
+    element.MouseLeave:Connect(function()
+        tooltip.Visible = false
+    end)
+end
+
+-- Animation and Visual Effects
+function EasyUI:Shake(element, intensity, duration)
+    local originalPos = element.Position
+    for i = 1, duration or 10 do
+        local randomX = math.random(-intensity, intensity)
+        local randomY = math.random(-intensity, intensity)
+        element.Position = UDim2.new(originalPos.X.Scale, originalPos.X.Offset + randomX, originalPos.Y.Scale, originalPos.Y.Offset + randomY)
+        wait(0.05)
     end
-    
-    print("Secret Mode on...")
-    wait(1)
-    print("Cheats detected")
+    element.Position = originalPos
+end
+
+function EasyUI:Spin(element, duration)
+    local startRotation = element.Rotation or 0
+    local endRotation = startRotation + 360
+    self:Animate(element, {Rotation = endRotation}, duration or 2, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut)
+end
+
+-- Utility Functions
+function EasyUI:ToggleVisibility(element)
+    element.Visible = not element.Visible
+end
+
+function EasyUI:TimedVisibility(element, duration)
+    element.Visible = true
+    wait(duration or 2)
+    element.Visible = false
+end
+
+function EasyUI:BindKeyToFunction(keyCode, func)
+    game:GetService("UserInputService").InputBegan:Connect(function(input)
+        if input.KeyCode == keyCode and func then
+            func()
+        end
+    end)
+end
+
+function EasyUI:ColorPicker(parent, size, position, callback)
+    local pickerFrame = self:Frame(parent, size, position, Color3.fromRGB(255, 255, 255))
+    local colorGradient = self:UIGradient(pickerFrame, ColorSequence.new(Color3.fromRGB(255, 0, 0), Color3.fromRGB(0, 0, 255)))
+
+    pickerFrame.MouseButton1Down:Connect(function()
+        local mouse = game.Players.LocalPlayer:GetMouse()
+        pickerFrame.BackgroundColor3 = mouse.Hit.Position
+        if callback then
+            callback(pickerFrame.BackgroundColor3)
+        end
+    end)
+
+    return pickerFrame
+end
+
+-- Advanced GUI Layouts
+function EasyUI:TabContainer(parent, tabs)
+    local container = self:Frame(parent, UDim2.new(1, 0, 1, 0), UDim2.new(0, 0, 0, 0), Color3.fromRGB(50, 50, 50))
+    local tabButtons = {}
+    local tabFrames = {}
+
+    for _, tab in pairs(tabs) do
+        local button = self:TextButton(container, tab.Name, UDim2.new(0.1, 0, 0.05, 0), nil, Color3.fromRGB(80, 80, 80))
+        local frame = self:Frame(container, UDim2.new(1, 0, 0.95, 0), UDim2.new(0, 0, 0.05, 0), Color3.fromRGB(70, 70, 70))
+        frame.Visible = false
+
+        button.MouseButton1Click:Connect(function()
+            for _, otherFrame in pairs(tabFrames) do
+                otherFrame.Visible = false
+            end
+            frame.Visible = true
+        end)
+
+        table.insert(tabButtons, button)
+        table.insert(tabFrames, frame)
+        tab.Content(frame)
+    end
+
+    return container, tabButtons, tabFrames
 end
 
 return EasyUI
