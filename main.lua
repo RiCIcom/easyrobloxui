@@ -3,7 +3,7 @@ local EasyUI = {}
 local useprinter = true
 -- If you dont like the COnsole Logs, just use local printer = false
 
-function printer(value)
+function EasyUI:printer(value)
     if value == true then
         print("You using EasyUI")
         else
