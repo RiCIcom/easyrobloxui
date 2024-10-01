@@ -1,6 +1,6 @@
 -- EasyUI Library
 local EasyUI = {}
-local useprinter = true
+local EasyUI:useprinter = true
 -- If you dont like the COnsole Logs, just use local printer = false
 
 -- Basis-Constructor
