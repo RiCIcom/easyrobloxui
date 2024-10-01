@@ -1,13 +1,18 @@
 -- EasyUI Library
 local EasyUI = {}
+local useprinter = true
+-- If you dont like the COnsole Logs, just use local printer = false
 
 function printer(value)
-    if value == true
-        then
-        print("EasyUI works")
-    else
-        
+    if value == true then
+        print("You using EasyUI")
+        else
+            if value == nil then
+             --Nothing   
+            end
     end
+
+
 end
 
 -- Basis-Constructor
@@ -329,5 +334,6 @@ function EasyUI:Bounce(element, property, targetValue, duration)
     EasyUI:Animate(element, {[property] = targetValue}, duration or 0.5, Enum.EasingStyle.Bounce, Enum.EasingDirection.Out)
 end
 
+printer(useprinter)
 -- Return the EasyUI library
 return EasyUI
