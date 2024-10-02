@@ -1,6 +1,6 @@
 # 🌟 EasyUI - Roblox GUI Simplification Library 🌟
 
-### Version: 1.0.0 | Maintained by [Rici]
+### Version: 1.5.4 | Maintained by [Lua Booster]
 
 ## 🚀 Overview
 
