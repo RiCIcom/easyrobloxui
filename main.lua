@@ -86,7 +86,7 @@ end
 function EasyUI:UICorner(parent, cornerRadius)
     return createUIElement("UICorner", {
         Parent = parent,
-        CornerRadius = cornerRadius or UDim.new(0, 10) -- Standardmäßig abgerundete Ecken mit Radius von 10 Pixeln
+        CornerRadius = cornerRadius or UDim.new(0, 10)
     })
 end
 
@@ -269,7 +269,6 @@ function EasyUI:MakeClickable(element, onClickFunction)
     end)
 end
 
--- Lichteffekte
 function EasyUI:SpotLight(parent, range, brightness)
     return createUIElement("SpotLight", {
         Parent = parent,
