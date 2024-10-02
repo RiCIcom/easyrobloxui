@@ -311,19 +311,18 @@ function EasyUI:Bounce(element, property, targetValue, duration)
 end
 
 function EasyUI:CreateMessage(title, message, image)
-    -- Warten, bis die CoreScripts geladen sind
-    local StarterGui = game:GetService("StarterGui")
-    while not StarterGui:GetCore("PlayerGui") do
-        wait(0.1)
-    end
+    local success, err = pcall(function()
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = title or "EasyUI Tool",
+            Text = message or "Nachricht hier",
+            Icon = image or "rbxassetid://1234567890",
+            Duration = 5
+        })
+    end)
 
-    -- Danach die Benachrichtigung senden
-    StarterGui:SetCore("SendNotification", {
-        Title = title or "EasyUI Tool",
-        Text = message or "Nachricht hier",
-        Icon = image or "rbxassetid://1234567890",
-        Duration = 5  -- Die Dauer der Nachricht in Sekunden
-    })
+    if not success then
+        warn("Fehler beim Senden der Benachrichtigung: " .. tostring(err))
+    end
 end
 
 function EasyUI:ProgressBar(parent, size, position, color, progress)
